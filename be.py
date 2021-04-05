@@ -2,7 +2,7 @@ from selenium import webdriver
 from bs4 import BeautifulSoup
 from flask import Flask, jsonify, request, redirect
 from flask_cors import CORS
-import re
+
 
 driver = webdriver.Chrome()
 
@@ -47,16 +47,5 @@ CORS(app)
 def get_wordcount():
     return jsonify({'words': freq(actual_text)})
 
-
-
-#url POST attempts
-
-# @app.route('/', methods-['POST'])
-# def post_url():
-    
-# @app.route('/', methods = ['POST'])
-# def url():
-#     form_data = request.form
-#     return render_template(form_data = form_data)
 
 
