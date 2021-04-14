@@ -1,0 +1,21 @@
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: selenium-test2-deployment
+#   labels:
+#     app: selenium-test2
+# spec:
+#   replicas: 3
+#   selector:
+#     matchLabels:
+#       app: selenium-test2
+#   template:
+#     metadata:
+#       labels:
+#         app: selenium-test2
+#     spec:
+#       containers:
+#       - name: selenium-test2
+#         image: selenium-test2:1.14.2
+#         ports:
+#         - containerPort: 80

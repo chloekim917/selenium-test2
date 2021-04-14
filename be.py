@@ -1,10 +1,15 @@
 from selenium import webdriver
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from bs4 import BeautifulSoup
 from flask import Flask, jsonify, request, redirect
 from flask_cors import CORS
+import re
 
 
-driver = webdriver.Chrome()
+# driver = webdriver.Chrome()
+# sleep(5)
+driver = webdriver.Remote(  command_executor='http://localhost:4444/wd/hub',
+   desired_capabilities=DesiredCapabilities.CHROME)
 
 url = 'http://textfiles.com/stories/alissadl.txt'
 driver.get(url)
