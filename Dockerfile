@@ -6,3 +6,10 @@ RUN pip install -r requirements.txt
 CMD python ./be.py
 
 
+FROM node
+COPY . /app
+
+WORKDIR /app
+# RUN npm ci
+EXPOSE 8080
+CMD node ./app.js ./app.html

@@ -3,12 +3,13 @@ from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from bs4 import BeautifulSoup
 from flask import Flask, jsonify, request, redirect
 from flask_cors import CORS
+from time import sleep
 import re
 
 
 # driver = webdriver.Chrome()
-# sleep(5)
-driver = webdriver.Remote(  command_executor='http://localhost:4444/wd/hub',
+sleep(5)
+driver = webdriver.Remote(command_executor='http://192.168.1.199:4444/wd/hub',
    desired_capabilities=DesiredCapabilities.CHROME)
 
 url = 'http://textfiles.com/stories/alissadl.txt'
@@ -19,7 +20,7 @@ html =  BeautifulSoup(driver.page_source, "html.parser")
 for item in html:
     actual_text=item.text
 
-driver.close() 
+# driver.close() 
 
 def freq(actual_text): 
     #eliminate special characters
